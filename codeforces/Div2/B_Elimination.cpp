@@ -4,7 +4,7 @@
 #include<ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
 using namespace std;
-#define int long long
+#define ll long long
 #define ld long double
 #define all(x) x.begin(), x.end()
 #define ull unsigned long long
@@ -28,9 +28,6 @@ int inverse(int x, int p = mod) { return pow(x, p - 2); }
 int nck(int n, int k, int p = mod) {
     return fact(n) * inverse(fact(k), p) % p * inverse(fact(n - k)) % p;
 }
-int npr(int n, int r, int p = mod) {
-    return fact(n) * inverse(fact(n - r), p) % p;
-}
 int str_to_num(string s) {
     int ans = 0;
     reverse(all(s));
@@ -46,21 +43,11 @@ int str_to_num(string s) {
 
 void solve()
 {
-     int n;
-    cin >> n;
-    map<int, vector<int>> mp;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        mp[x].push_back(i);
-    }
-    for (auto i : mp) {
-        if (i.second.size() == 1) {
-            cout << i.second[0] + 1 << '\n';
-            return;
-        }
-    }
-    cout << -1 << '\n';
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+
+    cout<<max((a+b),(c+d))<<"\n";
+
 }
 int32_t main()
 {

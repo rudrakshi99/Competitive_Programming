@@ -4,7 +4,7 @@
 #include<ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
 using namespace std;
-#define int long long
+#define ll long long
 #define ld long double
 #define all(x) x.begin(), x.end()
 #define ull unsigned long long
@@ -28,9 +28,6 @@ int inverse(int x, int p = mod) { return pow(x, p - 2); }
 int nck(int n, int k, int p = mod) {
     return fact(n) * inverse(fact(k), p) % p * inverse(fact(n - k)) % p;
 }
-int npr(int n, int r, int p = mod) {
-    return fact(n) * inverse(fact(n - r), p) % p;
-}
 int str_to_num(string s) {
     int ans = 0;
     reverse(all(s));
@@ -46,21 +43,38 @@ int str_to_num(string s) {
 
 void solve()
 {
-     int n;
+    int n;
     cin >> n;
-    map<int, vector<int>> mp;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        mp[x].push_back(i);
-    }
-    for (auto i : mp) {
-        if (i.second.size() == 1) {
-            cout << i.second[0] + 1 << '\n';
-            return;
+    int arr[n];
+    int zero =0;
+    int sum = 0;
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+        sum+= arr[i];
+        if(arr[i]==0){
+           zero++;
         }
     }
-    cout << -1 << '\n';
+
+    if(zero == 0 && sum !=0){  // no 0 s > 0
+       cout<<0<<"\n";
+    }
+    else if(zero==0 && sum==0){ //no 0  s =0
+       cout<<1<<"\n";
+    }
+
+    else if(zero==abs(sum) && sum <0){ // 0 s < 0
+      
+          cout<<zero+1<<"\n";
+
+       
+    }
+    else { // 0 s >= 0
+      
+        cout<<zero<<"\n";
+    }
+    
+
 }
 int32_t main()
 {
