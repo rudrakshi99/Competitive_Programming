@@ -43,33 +43,34 @@ int str_to_num(string s) {
 
 void solve()
 {
-     int n;
-     cin >> n;
-     int m = n, a, c=0;
-     while(m!=0){
-        a = m%10;
-        c++;
-        m = m/10;
+     ll n,x;
+     cin >> n >> x;
+     ll a =0, b=0;
+     ll arr[n];
+     for(ll i=0;i<n;i++){
+         cin >> arr[i];
+         b+=arr[i];
      }
-     int ans = 10 * (a-1);
-     int  i =1;
-     while(c--){
-        ans += i;
-        i++;
-     }
-   
-   cout<<ans<<"\n";
-   
+     b = ceil(b*(1.0)/x);
+     for(ll i=0;i<n;i++){
+        //cout<<ceil((float)arr[i]/x)<<"l";
+         a+=ceil(arr[i]*(1.0)/x);
+     }     
+     cout<<min(a,b)<<" "<<max(a,b)<<"\n";
 }
+        
+    
+ 
+
 int32_t main()
 {
-	//#ifndef ONLINE_JUDGE
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-    //freopen("error.txt", "w", stderr);
-    //#endif
+	#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    
+    #endif
     fast;
-    int t=1;
+    ll t=1;
     cin>>t;
     while(t--)
     	solve();
