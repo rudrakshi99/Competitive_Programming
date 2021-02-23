@@ -109,11 +109,7 @@ void solve()
 }
 int32_t main()
 {
-    #ifndef ONLINE_JUDGE
-    freopen("b_little_bit_of_everything.in", "r", stdin);
-    freopen("output_b.txt", "w", stdout);
     
-    #endif
      fast;
     int t=1;
     
