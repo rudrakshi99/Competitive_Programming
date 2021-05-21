@@ -98,15 +98,15 @@ void solve(ll t) {
                 if (min(left, top) >= 2 &&  max(left, top) >= 4) {
                     u = min(left, top);
                     v = max(left, top);
-                    
-                    ll total = min(u-1,v/2-1) + min(u/2-1,v - 1);
+
+                    ll total = min(u - 1, v / 2 - 1) + min(u / 2 - 1, v - 1);
                     //cout << i + 1 << " " << j + 1 << " " << total << endl;
                     ans += total;
                 }
                 if (min(left, down) >= 2 && max(left, down) >= 4) {
                     u = min(left, down);
                     v = max(left, down);
-                    ll total = min(u-1,v/2-1) + min(u/2-1,v - 1);
+                    ll total = min(u - 1, v / 2 - 1) + min(u / 2 - 1, v - 1);
                     //cout << i + 1 << " " << j + 1 << " " << total << endl;
                     ans += total;
                 }
@@ -114,15 +114,15 @@ void solve(ll t) {
                     u = min(right, top);
                     v = max(right, top);
                     x = min(u , v / 2);
-                    ll total = min(u - 1,v/2-1) + min(u/2-1,v - 1);
+                    ll total = min(u - 1, v / 2 - 1) + min(u / 2 - 1, v - 1);
                     //cout << i + 1 << " " << j + 1 << " " << total << endl;
                     ans += total;
                 }
                 if (min(right, down) >= 2 && max(right, down) >= 4) {
                     u = min(right, down);
                     v = max(right, down);
-    
-                    ll total = min(u-1,v/2-1) + min(u/2-1,v - 1);
+
+                    ll total = min(u - 1, v / 2 - 1) + min(u / 2 - 1, v - 1);
                     //cout << i + 1 << " " << j + 1 << " " << total << endl;
                     ans += total;
                 }
