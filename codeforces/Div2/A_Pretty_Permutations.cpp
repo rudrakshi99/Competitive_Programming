@@ -41,6 +41,30 @@ int str_to_num(string s) {
 void solve()
 {
 
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        arr[i] = i + 1;
+    }
+
+    if (n % 2 == 0) {
+        for (int i = 0; i < n; i = i + 2) {
+            swap(arr[i], arr[i + 1]);
+        }
+    } else {
+        for (int i = 0; i < n - 1; i = i + 2) {
+            swap(arr[i], arr[i + 1]);
+        }
+        swap(arr[n - 2], arr[n - 1]);
+
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+
 
 }
 
@@ -52,7 +76,7 @@ int32_t main() {
 #endif
     fast;
     ll  t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--)
         solve();
 

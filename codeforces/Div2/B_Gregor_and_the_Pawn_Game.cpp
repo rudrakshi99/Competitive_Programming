@@ -27,32 +27,53 @@ int inverse(int x, int p = mod) { return pow(x, p - 2); }
 int nck(int n, int k, int p = mod) {
     return fact(n) * inverse(fact(k), p) % p * inverse(fact(n - k)) % p;
 }
-int str_to_num(string s) {
-    int ans = 0;
-    reverse(all(s));
-    while (s.length()) {
-        ans *= 10;
-        ans += s.back() - '0';
-        s.pop_back();
-    }
-    return ans;
-}
 
 void solve()
 {
 
+    ll n;
+    cin >> n;
+    string s1, s2;
+    cin >> s1;
+    cin >> s2;
+    ll arr[2][n];
+    for (ll i = 0; i < n; i++) {
+        string s = "";
+        s += s1[i];
+        arr[0][i] = stoi(s) ;
 
+        s = "";
+        s += s2[i];
+        arr[1][i] = stoi(s) ;
+
+
+    }
+    ll ans = 0;
+    for (ll i = 0; i < n; i++) {
+        if (i != 0 && arr[1][i] == 1 && arr[0][i - 1] == 1) {
+            arr[0][i - 1] = -1;
+            ans++;
+        } else if ( arr[1][i] == 1 && arr[0][i] == 0) {
+            arr[0][i] = -1;
+            ans++;
+        }
+        else if (i != n - 1 && arr[1][i] == 1 && arr[0][i + 1] == 1) {
+            arr[0][i + 1] = -1;
+            ans++;
+        }
+    }
+    cout << ans << "\n";
 }
-
-int32_t main() {
+int32_t main()
+{
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
 #endif
     fast;
-    ll  t = 1;
-    //cin >> t;
+    int t = 1;
+    cin >> t;
     while (t--)
         solve();
 

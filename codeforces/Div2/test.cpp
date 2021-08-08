@@ -1,8 +1,5 @@
-//Rudrakshi
 
 #include<bits/stdc++.h>
-#include<ext/pb_ds/assoc_container.hpp>
-using namespace __gnu_pbds;
 using namespace std;
 #define ll long long
 #define ld long double
@@ -17,9 +14,6 @@ using namespace std;
 #define mod2 998244353
 #define mod mod1
 #define MAX ll(1e3)
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());//shuffle
-
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
 int __lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 int fact(int n) { return n == 0 ? 1LL : n * fact(n - 1) % mod; }

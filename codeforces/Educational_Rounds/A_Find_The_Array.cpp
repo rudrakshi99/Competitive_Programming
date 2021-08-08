@@ -9,6 +9,7 @@ using namespace std;
 #define all(x) x.begin(), x.end()
 #define ull unsigned long long
 #define fre(i,n) for (auto i=0; i<n; i++) cout << v[i].first << " " << v[i].second << "\n";
+#define fr(i,n) for(ll i=0; i<n; i++) cout << arr[i];
 #define setbits(x) __builtin_popcountll(x)
 #define zrobits(x) __builtin_ctzll(x)
 #define ps(x,y) fixed<<setprecision(y)<<x
@@ -38,21 +39,40 @@ int str_to_num(string s) {
     return ans;
 }
 
+
+
 void solve()
 {
+    int arr[5001];
+    for (int i = 0; i < 5000; i++) {
+        arr[i] = INT_MAX;
+    }
 
+    arr[1] = 1;
+    arr[2] = 2;
+    arr[3] = 2;
+    int n;
+    cin >> n;
+    for (int i = 4; i <= n; i++) {
+
+        arr[i] = 1 + min(arr[i - 1], min(arr[i - 2], arr[i - 3]) );
+
+    }
+
+
+    cout << arr[n] << "\n";
 
 }
-
-int32_t main() {
+int32_t main()
+{
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
 #endif
     fast;
-    ll  t = 1;
-    //cin >> t;
+    int t = 1;
+    cin >> t;
     while (t--)
         solve();
 

@@ -41,6 +41,31 @@ int str_to_num(string s) {
 void solve()
 {
 
+    ll n;
+    cin >> n;
+    ll arr[n + 2];
+
+    for (ll i = 1; i <= n; i++) {
+        cin >> arr[i];
+    }
+    ll c = 0;
+    for (ll i = 1; i < n; i++) {
+        ll k = arr[i];
+
+        for (ll j = k - ( i % k) ; j <= n; j = j + k) {
+            ll ind = j;
+
+            // cout << arr[ind] << " " << k << " " << mul << "\n";
+
+            if (arr[ind]*k == (j + i) && (ind > i) ) {
+                // cout << arr[ind] << " " << k << " " << mul << "\n";
+                c++;
+
+            }
+
+        }
+    }
+    cout << c << "\n";
 
 }
 
@@ -52,7 +77,7 @@ int32_t main() {
 #endif
     fast;
     ll  t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--)
         solve();
 

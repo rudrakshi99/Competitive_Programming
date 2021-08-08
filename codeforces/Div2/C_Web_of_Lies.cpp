@@ -27,32 +27,62 @@ int inverse(int x, int p = mod) { return pow(x, p - 2); }
 int nck(int n, int k, int p = mod) {
     return fact(n) * inverse(fact(k), p) % p * inverse(fact(n - k)) % p;
 }
-int str_to_num(string s) {
-    int ans = 0;
-    reverse(all(s));
-    while (s.length()) {
-        ans *= 10;
-        ans += s.back() - '0';
-        s.pop_back();
-    }
-    return ans;
-}
 
+
+const int maxn = 200010;
+
+int st[maxn];
 void solve()
 {
+    int n, m;
+    cin >> n >> m;
+    int ans = n;
+    while (m--)
+    {
+        int a, b , an;
+        cin >> a >> b;
+        if (a > b) swap(a, b);
+        st[a] += 1;
+        if (st[a] == 1) ans--;
+    }
+    int q;
+    cin >> q;
+    while (q--)
+    {
+        int op;
+        cin >> op;
+        if (op == 1)
+        {
+            int a, b;
+            cin >> a >> b;
+            if (a > b) swap(a, b);
+            st[a] ++;
+            if (st[a] == 1) ans--;
+        }
+        else if (op == 2)
+        {
+            int a, b;
+            cin >> a >> b;
+            if (a > b) swap(a, b);
+            st[a] --;
+            if (st[a] == 0) ans++;
+        }
+        else cout << ans << endl;
+    }
 
 
 }
 
-int32_t main() {
+int32_t main()
+{
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
 #endif
     fast;
-    ll  t = 1;
-    //cin >> t;
+    int t = 1;
+    // cin >> t;
     while (t--)
         solve();
 

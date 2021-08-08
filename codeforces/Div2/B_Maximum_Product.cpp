@@ -41,7 +41,57 @@ int str_to_num(string s) {
 void solve()
 {
 
+    ll n;
+    cin >> n;
+    ll arr[n];
+    ll n_c = 0, p_c = 0;
+    for (ll i = 0; i < n; i++) {
+        cin >> arr[i];
+        if (arr[i] < 0) {
+            n_c++;
+        } else {
+            p_c++;
+        }
+    }
+    sort(arr, arr + n);
 
+    ll ans = LONG_MIN;
+    if (n == 5) {
+        ll a = 1;
+        for (ll i = 0; i < n; i++) {
+            a = a * arr[i];
+        }
+        ans = a;
+    } else {
+
+        ll k = 1;
+        for (ll i = n - 1; i >= n - 5; i--) {
+            k = k * arr[i];
+        }
+
+        ans = max(ans, k);
+
+        ll a = 1;
+        for (ll i = 0; i < 2; i++) {
+            a = a * arr[i];
+        }
+        for (ll i = n - 1; i >= n - 3; i--) {
+            a = a * arr[i];
+        }
+        ans = max(k, a);
+
+        a = 1;
+        for (ll i = 0; i < 4; i++) {
+            a = a * arr[i];
+        }
+        a = a * arr[n - 1];
+
+        ans = max(ans, a);
+
+
+    }
+
+    cout << ans << "\n";
 }
 
 int32_t main() {
@@ -52,7 +102,7 @@ int32_t main() {
 #endif
     fast;
     ll  t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--)
         solve();
 
